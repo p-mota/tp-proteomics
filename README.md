@@ -400,17 +400,17 @@ Completer le tableau ci-dessous avec les quantités vous semblant adéquates pou
 A l'aide du contenu de `data/EColiK12_GOcounts.json` parametrez la loi hypergeometrique et calculez la pvalue
 de chaque terme GO portés par les protéines surabondantes. Vous reporterez ces données dans le tableau ci-dessous
 
-| identifiant GO | définition | occurence | pvalue|
-|---|---|---|---|
-|GO:0009279|	|C:cell outer membrane                         |	|8|	|0.000031|
-|GO:0009264|	|P:deoxyribonucleotide catabolic process       |	|2|	|0.000141|
-|GO:0034220|	|P:ion transmembrane transport                 |	|3|	|0.000322|
-|GO:0046930|	|C:pore complex                                |	|3|	|0.001341|
-|GO:0009264|	|P:deoxyribonucleotide catabolic process       |	|2|	|0.000141|
-|GO:0015288|	|F:porin activity                              |	|3|	|0.001565|
-|GO:0038023|	|F:signaling receptor activity                 |	|2|	|0.002059|
-|GO:0015344|	|F:siderophore uptake transmembrane transporter|	|2|	|0.003787|
-|   |   |   |   |
+| identifiant GO | définition                                       | occurence | pvalue |
+|----------------|--------------------------------------------------|-----------|--------|
+|GO:0009279      |C:cell outer membrane                         	|8          |0.000031|
+|GO:0009264      |P:deoxyribonucleotide catabolic process       	|2          |0.000141|
+|GO:0034220      |P:ion transmembrane transport                 	|3          |0.000322|
+|GO:0046930      |C:pore complex                                	|3          |0.001341|
+|GO:0009264      |P:deoxyribonucleotide catabolic process       	|2          |0.000141|
+|GO:0015288      |F:porin activity                              	|3          |0.001565|
+|GO:0038023      |F:signaling receptor activity                 	|2          |0.002059|
+|GO:0015344      |F:siderophore uptake transmembrane transporter	|2          |0.003787|
+|                |                                                  |           |        |
 
 Quelle interpretation biologique faites-vous de cet enrichissement en termes GO ?
 Aprés analyse des termes GO, on observe une surreprésentation des termes associés à la membrane externe bactérienne, complexes de pores et au transport transmembranaire. Ces fonctions jouent un rôle dans la perméabilité membraneire et aux systèmes de transport moléculaire.
