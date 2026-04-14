@@ -254,7 +254,7 @@ df.loc[ df['Gene Symbol'].isin(['fadR', 'arcA'] ) ]
 ```
 mu = -0.6467130248461945
 sigma = 0.46723442417098815
-
+print(mu, sigma)
 ```
 
 ##### 4. Superposez la densité de probabilité de cette loi sur l'histogramme. Attention, la densité de probabilité devra être mis à l'echelle de l'histogramme (cf ci-dessous)
