@@ -132,42 +132,34 @@ df = pandas.read_csv()
 
 Quel est le type de l'objet `df`?
 ```
-values est aussi un pandas.core.frame.DataFrame
+
 ```
 
 ##### Descriptions d'une table de données
 Que permettent les méthodes suivantes?
 ###### df.shape
 ```
-(2024, 7)
 ```
 ###### df.head()
 ```
-5 premières lignes du tableau.
 ```
 ###### df.tail()
 ```
-5 dernières lignes du tableau.
 ```
 ###### df.columns
 ```
-Nom des colonnes.
 ```
 ###### df.dtypes
 ```
-Types des colonnes.
 ```
 ###### df.info
 ```
-Résumé du tableau (DataFrame).
 ```
 ###### df.describe()
 ```
-Affiche des statistiques descriptives de la colonne numériques.
 ```
 ###### df.dropna()
 ```
-Enlève les valeurs manquantes.
 ```
 
 ##### Accès aux éléments d'une table de données
@@ -187,19 +179,16 @@ On peut accéder aux valeurs du DataFrame via des indices ou plages d'indice. La
 Il y a différentes manières de le faire, l'utilisation de `.iloc[slice_ligne,slice_colonne]` constitue une des solutions les plus simples. N'oublions pas que shape permet d'obtenir les dimensions (lignes et colonnes) du DataFrame.
 ###### Acceder aux cinq premières lignes de toutes les colonnes
 ```python
-values.head()
 
 ```
 
 ###### Acceder à toutes les lignes de la dernière colonne
 ```python
-values.iloc[:,-1]
 
 ```
 
 ###### Acceder aux cinq premières lignes des colonnes 0, 2 et 3
 ```python
-df.head().iloc[:,[0,2,3]]
 
 ```
 
@@ -252,8 +241,7 @@ df.loc[ df['Gene Symbol'].isin(['fadR', 'arcA'] ) ]
 
 ##### 3. A partir de cette échantillon de ratio d'abondance,  estimez la moyenne $\mu$ et l'ecart-type $\sigma$ d'une loi normale.
 ```
-mu = -0.6467130248461945
-sigma = 0.46723442417098815
+
 
 ```
 
@@ -275,7 +263,8 @@ ax.plot(x, norm.pdf(x, mu, sigma)*scale) # compute theoritical PDF and draw it
 ##### 5. Quelles remarques peut-on faire à l'observation de l'histogramme et de la loi théorique?
 
 ```
-La distribution des valeurs ne suit pas une loi Normale.
+
+
 ```
 
 #### Construction d'un volcano plot
@@ -298,29 +287,7 @@ Nous allons implementer une approche ORA (Over Representation Analysis) naive.
 
 Quelles sont leurs identifiants UNIPROT ?
 ``` 
-['P23721',
- 'P77804',
- 'P0A6K6',
- 'P0A799',
- 'P0A7G6',
- 'P0A6F3',
- 'P25745',
- 'P0A6M8',
- 'P0A6L0',
- 'P0A8V6',
- 'P0A9Q1',
- 'P02358',
- 'P0ACF8',
- 'P62399',
- 'P0A905',
- 'P76506',
- 'P13036',
- 'P10384',
- 'P06971',
- 'P0A910',
- 'P06996',
- 'P76344',
- 'P02931']
+
 
 
 ```
@@ -390,10 +357,10 @@ Completer le tableau ci-dessous avec les quantités vous semblant adéquates pou
 
 | Symboles | Paramètres | Quantités Biologiques |
 | --- | --- | --- |
-| k | nombre de succès observés| nombre de protéines surabondante portant le terme GO |
-| K | nombre de succès possibles| nombre de protéines portant le terme GO             |
-| n | nombre d'observations| nombre de protéines surabondantes                        |
-| N | nombre d'elements observables| nombre de protéines                              |
+| k | nombre de succès observés| |
+| K | nombre de succès possibles| |
+| n | nombre d'observations| |
+| N | nombre d'elements observables| |
 
 #### 4. Calcul de l'enrichissement en fonctions biologiques
 
@@ -402,19 +369,10 @@ de chaque terme GO portés par les protéines surabondantes. Vous reporterez ces
 
 | identifiant GO | définition | occurence | pvalue|
 |---|---|---|---|
-|GO:0009279|	|C:cell outer membrane                         |	|8|	|0.000031|
-|GO:0009264|	|P:deoxyribonucleotide catabolic process       |	|2|	|0.000141|
-|GO:0034220|	|P:ion transmembrane transport                 |	|3|	|0.000322|
-|GO:0046930|	|C:pore complex                                |	|3|	|0.001341|
-|GO:0009264|	|P:deoxyribonucleotide catabolic process       |	|2|	|0.000141|
-|GO:0015288|	|F:porin activity                              |	|3|	|0.001565|
-|GO:0038023|	|F:signaling receptor activity                 |	|2|	|0.002059|
-|GO:0015344|	|F:siderophore uptake transmembrane transporter|	|2|	|0.003787|
 |   |   |   |   |
 
 Quelle interpretation biologique faites-vous de cet enrichissement en termes GO ?
-Aprés analyse des termes GO, on observe une surreprésentation des termes associés à la membrane externe bactérienne, complexes de pores et au transport transmembranaire. Ces fonctions jouent un rôle dans la perméabilité membraneire et aux systèmes de transport moléculaire.
-Cela peut indiquer que des processus s'activent pour expulser les antibiotique hors de la cellule et réduire leur concentretion intracellulaire. Ce qui est cohérent dans le cadre de notre étude d'efflux AcrAB-TolC.
+
 
 ### Analyse des interactions répertoriées dans STRING
 
@@ -435,7 +393,7 @@ Combien d'interactions contient ce réseau ?
 
 ```
 
-38
+
 
 
 ```
@@ -450,13 +408,9 @@ Combien d'interactions sont supportées par chaque source ('Textmining', 'Experi
 
 Hint: l'onglet Analysis, donne accès aux nombre des interactions du réseau.
 ```
-'Textmining':29
-'Experiments':8
-'Databases': 4
-'Co-expression': 9
-'Neighborhood':1
-'Gene Fusion': 0
-'Co-occurence': 7
+
+
+
 
 ```
 
@@ -468,7 +422,7 @@ Que peut-on en conclure sur les interactions de ce petit ensemble de protéines 
 ```
 
 
-on a significativement plus d'interaction qu'attendu.
+
 
 ```
 
