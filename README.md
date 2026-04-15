@@ -132,14 +132,14 @@ df = pandas.read_csv()
 
 Quel est le type de l'objet `df`?
 ```
-values est aussi un pandas.core.frame.DataFrame
+pandas.DataFrame
 ```
 
 ##### Descriptions d'une table de données
 Que permettent les méthodes suivantes?
 ###### df.shape
 ```
-(2024, 7)
+(1750, 7)
 ```
 ###### df.head()
 ```
@@ -159,7 +159,7 @@ Types des colonnes.
 ```
 ###### df.info
 ```
-Résumé du tableau (DataFrame).
+Résumé du DataFrame.
 ```
 ###### df.describe()
 ```
@@ -254,7 +254,6 @@ df.loc[ df['Gene Symbol'].isin(['fadR', 'arcA'] ) ]
 ```
 mu = -0.6467130248461945
 sigma = 0.46723442417098815
-print(mu, sigma)
 ```
 
 ##### 4. Superposez la densité de probabilité de cette loi sur l'histogramme. Attention, la densité de probabilité devra être mis à l'echelle de l'histogramme (cf ci-dessous)
@@ -270,7 +269,7 @@ scale = len(_)*dx # scale accordingly
 ax.plot(x, norm.pdf(x, mu, sigma)*scale) # compute theoritical PDF and draw it
 ```
 
-![Histogramme à inserez ici](histogram_log2FC.png "Title")
+![Histogramme des Log2 FC](figures/histogram_log2FC.png)
 
 ##### 5. Quelles remarques peut-on faire à l'observation de l'histogramme et de la loi théorique?
 
@@ -288,7 +287,7 @@ Sont condidérées comme surabondantes les proteines remplissant ces deux critè
 * $\text{Log}_2(\text{abundance ratio})\gt\mu%2B\sigma$
 * $\text{p-value}<0.001$
 
-![Volcano plot + quadrant à inserez ici](histogram_log2FC.png "Title")
+![Volcano plot](figures/volcano_plot.png)
 
 ### Analyse Fonctionelle de pathway
 
@@ -317,12 +316,10 @@ Quelles sont leurs identifiants UNIPROT ?
  'P13036',
  'P10384',
  'P06971',
- 'P0A910',
+ 'P0A910'
  'P06996',
  'P76344',
  'P02931']
-
-
 ```
 
 #### 2. Listez les termes GO portés par ces protéines surabondates
@@ -388,29 +385,31 @@ Si k protéines surabondantes porte un terme GO, la pvalue de ce terme sera équ
 
 Completer le tableau ci-dessous avec les quantités vous semblant adéquates pour modeliser la pvalue de **chaque pathway [termes GO]**
 
-| Symboles | Paramètres | Quantités Biologiques |
-| --- | --- | --- |
-| k | nombre de succès observés| nombre de protéines surabondante portant le terme GO |
-| K | nombre de succès possibles| nombre de protéines portant le terme GO             |
-| n | nombre d'observations| nombre de protéines surabondantes                        |
-| N | nombre d'elements observables| nombre de protéines                              |
+| Symboles | Paramètres                   | Quantités Biologiques                                |
+| -------- | ---------------------------- | ---------------------------------------------------- |
+| k        | nombre de succès observés    | nombre de protéines surabondante portant le terme GO |
+| K        | nombre de succès possibles   | nombre total de protéines portant le terme GO        |
+| n        | nombre d'observations        | nombre total de protéines surabondantes              |
+| N        | nombre d'elements observables| nombre total de protéines mesurées                   |
 
 #### 4. Calcul de l'enrichissement en fonctions biologiques
 
 A l'aide du contenu de `data/EColiK12_GOcounts.json` parametrez la loi hypergeometrique et calculez la pvalue
 de chaque terme GO portés par les protéines surabondantes. Vous reporterez ces données dans le tableau ci-dessous
 
-| identifiant GO | définition                                       | occurence | pvalue |
-|----------------|--------------------------------------------------|-----------|--------|
-|GO:0009279      |C:cell outer membrane                         	|8          |0.000031|
-|GO:0009264      |P:deoxyribonucleotide catabolic process       	|2          |0.000141|
-|GO:0034220      |P:ion transmembrane transport                 	|3          |0.000322|
-|GO:0046930      |C:pore complex                                	|3          |0.001341|
-|GO:0009264      |P:deoxyribonucleotide catabolic process       	|2          |0.000141|
-|GO:0015288      |F:porin activity                              	|3          |0.001565|
-|GO:0038023      |F:signaling receptor activity                 	|2          |0.002059|
-|GO:0015344      |F:siderophore uptake transmembrane transporter	|2          |0.003787|
-|                |                                                  |           |        |
+| identifiant GO | définition                                              | occurence | pvalue   |
+|----------------|---------------------------------------------------------|-----------|----------|
+| GO:0005829     | C:cytosol                                               | 13        | 9.32e-17 |
+| GO:0009279     | C:cell outer membrane                                   | 8         | 1.53e-15 |
+| GO:0006974     | P:cellular response to DNA damage stimulus              | 6         | 1.69e-09 |
+| GO:0034220     | P:ion transmembrane transport                           | 3         | 4.95e-08 |
+| GO:0042802     | F:identical protein binding                             | 6         | 1.27e-07 |
+| GO:0046930     | C:pore complex                                          | 3         | 2.18e-07 |
+| GO:0015288     | F:porin activity                                        | 3         | 2.56e-07 |
+| GO:0009264     | P:deoxyribonucleotide catabolic process                 | 2         | 4.01e-07 |
+| GO:0038023     | F:signaling receptor activity                           | 2         | 6.01e-06 |
+| GO:0015344     | F:siderophore uptake transmembrane transporter activity | 2         | 1.12e-05 |
+|                |                                                         |           |          |
 
 Quelle interpretation biologique faites-vous de cet enrichissement en termes GO ?
 Aprés analyse des termes GO, on observe une surreprésentation des termes associés à la membrane externe bactérienne, complexes de pores et au transport transmembranaire. Ces fonctions jouent un rôle dans la perméabilité membraneire et aux systèmes de transport moléculaire.
